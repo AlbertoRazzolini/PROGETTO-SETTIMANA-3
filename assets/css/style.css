@@ -63,7 +63,9 @@ header {
 #toggle-theme {
   float: right;
   margin-top: -2.5rem;
-  padding: 1.2rem 80px;
+  padding: 1.2rem;
+  min-width: 140px;
+  text-align: center;
   background-color: #9c1c1c;
   color: #d1b3b3;
   border-radius: 10px;
@@ -98,6 +100,11 @@ header {
   width: 80%;
 }
 
+.form-container h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
 .form-row {
   font-size: 0;
 }
@@ -130,7 +137,8 @@ header {
   margin-top: 1rem;
 }
 
-/* DARK MODE — form */
+/* SCURO MODE — form */
+
 .scuro .form-container {
   background-color: #1e1e1e;
   border-color: #333;
@@ -153,9 +161,9 @@ header {
   border-color: #bbb;
 }
 
-/* CONTROLLI */
+/* STATISTICHE */
 
-.controlli-container {
+.statistiche-container {
   margin: 2rem 10%;
   padding: 1.5rem;
   border: 1px solid #ccc;
@@ -164,12 +172,96 @@ header {
   width: 80%;
 }
 
-.controlli {
+.statistiche {
+  display: inline-block;
+  width: 100%;
   font-size: 0;
 }
 
-.controlli input,
-.controlli select {
+.stat {
+  display: inline-block;
+  width: calc(36% / 3);
+  margin-right: 3%;
+  text-align: center;
+  font-size: 0.9rem;
+  vertical-align: middle;
+}
+
+.stat span {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #9c1c1c;
+}
+
+.stat p {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+/* SCURO MODE — statistiche */
+
+.scuro .statistiche-container {
+  background-color: #1e1e1e;
+  border-color: #333;
+}
+
+.scuro .stat span {
+  color: #e06060;
+}
+
+.scuro .stat p {
+  color: #aaa;
+}
+
+.barra-container {
+  display: inline-block;
+  width: 55%;
+  height: 12px;
+  background-color: #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+#barra-visti {
+  height: 100%;
+  width: 0%;
+  background-color: #9c1c1c;
+  border-radius: 6px;
+}
+
+.scuro .barra-container {
+  background-color: #444;
+}
+
+.scuro #barra-visti {
+  background-color: #e06060;
+}
+
+/* CONTROLLI */
+
+.filtri-container {
+  margin: 2rem 10%;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  width: 80%;
+}
+
+.filtri-container h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.filtri {
+  font-size: 0;
+}
+
+.filtri input,
+.filtri select {
   display: inline-block;
   width: calc(94% / 3);
   margin-right: 3%;
@@ -183,19 +275,43 @@ header {
   vertical-align: middle;
 }
 
-.controlli select:last-child {
+.filtri select:last-child {
   margin-right: 0;
 }
 
-/* DARK MODE — controlli */
-.scuro .controlli-container {
+/* SCURO MODE — filtri */
+.scuro .filtri-container {
   background-color: #1e1e1e;
   border-color: #333;
 }
 
-.scuro .controlli input,
-.scuro .controlli select {
+.scuro .filtri-container h2 {
+  color: #f5f5f5;
+}
+
+.scuro .filtri input,
+.scuro .filtri select {
   background: #2a2a2a;
   border-color: #444;
+  color: #f5f5f5;
+}
+
+.lista {
+  margin: 2rem 10%;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  width: 80%;
+}
+
+/* SCURO MODE — lista */
+.scuro .lista {
+  background-color: #1e1e1e;
+  border-color: #333;
+  color: #f5f5f5;
+}
+
+.scuro .lista button {
   color: #f5f5f5;
 }

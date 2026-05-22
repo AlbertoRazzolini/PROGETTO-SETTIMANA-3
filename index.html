@@ -14,7 +14,7 @@
         <p>
           Aggiungi gli anime che hai visto, che stai guardando o che vuoi vedere
         </p>
-        <button id="toggle-theme">Tema chiaro</button>
+        <button id="toggle-theme">Tema scuro</button>
       </div>
     </header>
 
@@ -29,7 +29,6 @@
                 type="text"
                 id="input-titolo"
                 placeholder="Titolo"
-                required
               />
               <select id="input-stato">
                 <option disabled selected>Stato</option>
@@ -59,9 +58,14 @@
         </section>
       </div>
       <!-- Ricerca live, filtro (select), ordinamento -->
-      <div class="controlli-container">
-        <section class="controlli">
-          <input type="text" id="input-ricerca" placeholder="Cerca per titolo" />
+      <div class="filtri-container">
+        <section class="filtri">
+          <h2>Filtra ed ordina</h2>
+          <input
+            type="text"
+            id="input-ricerca"
+            placeholder="Cerca per titolo"
+          />
           <select id="filtro-stato">
             <option value="Tutti">Tutti</option>
             <option value="Da vedere">Da vedere</option>
@@ -76,10 +80,25 @@
           </select>
         </section>
       </div>
-
-      <section class="statistiche">
-        <!-- Conteggi e/o barre orizzontali -->
-      </section>
+      <div class="statistiche-container">
+        <section class="statistiche">
+          <div class="stat">
+            <span id="stat-visti">0</span>
+            <p>Visti</p>
+          </div>
+          <div class="stat">
+            <span id="stat-in-visione">0</span>
+            <p>In visione</p>
+          </div>
+          <div class="stat">
+            <span id="stat-da-vedere">0</span>
+            <p>Da vedere</p>
+          </div>
+          <div class="barra-container">
+            <div id="barra-visti"></div>
+          </div>
+        </section>
+      </div>
 
       <section class="lista">
         <!-- Container che render() ricostruisce a ogni cambio di stato -->
