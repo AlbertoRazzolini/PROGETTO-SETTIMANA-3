@@ -31,9 +31,25 @@ button {
   background: none;
 }
 
-/* Notifica nascosta di default */
+/* Notifica */
 #notifica {
-  display: none;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #000;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.9rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+#notifica.visibile {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* Scrivi qui sotto i tuoi stili */
@@ -305,6 +321,57 @@ header {
   width: 80%;
 }
 
+/* LISTA — card */
+.lista {
+  list-style: none;
+}
+
+.lista li {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.lista li:last-child {
+  margin-bottom: 0;
+}
+
+.card-info {
+  display: inline-block;
+}
+
+.card-azioni {
+  float: right;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.badge-visto {
+  background: #d4edda;
+  color: #155724;
+}
+.badge-da-vedere {
+  background: #fff3cd;
+  color: #856404;
+}
+.badge-in-visione {
+  background: #cce5ff;
+  color: #004085;
+}
+
 /* SCURO MODE — lista */
 .scuro .lista {
   background-color: #1e1e1e;
@@ -312,6 +379,44 @@ header {
   color: #f5f5f5;
 }
 
+.scuro .lista li {
+  background: #2a2a2a;
+  border-color: #444;
+  color: #f5f5f5;
+}
+
+.btn-segna {
+  background-color: #1a6ec8;
+  color: #fff;
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid #fff;
+  margin-right: 0.4rem;
+  font-size: 0.85rem;
+}
+
+.btn-card {
+  background-color: transparent;
+  color: #555;
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-right: 0.4rem;
+  font-size: 0.8rem;
+}
+
+.scuro .btn-card {
+  color: #ccc;
+  border-color: #555;
+}
+
 .scuro .lista button {
   color: #f5f5f5;
+}
+
+.footer-content {
+  text-align: center;
+  background-color: #f0f0f0;
+  padding: 2rem;
+  color: #555;
 }

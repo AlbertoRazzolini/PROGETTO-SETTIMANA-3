@@ -4,41 +4,23 @@ let anime = [
   {
     titolo: "Naruto",
     stato: "Visto",
-    voto: 9,
+    voto: 8,
     categoria: "Shonen",
   },
   {
     titolo: "One Piece",
-    stato: "Visto",
-    voto: 10,
-    categoria: "Shonen",
-  },
-  {
-    titolo: "Bleach",
-    stato: "Visto",
-    voto: 8,
-    categoria: "Shonen",
-  },
-  {
-    titolo: "Death Note",
-    stato: "Visto",
+    stato: "In visione",
     voto: 9,
     categoria: "Shonen",
   },
   {
-    titolo: "Attack on Titan",
-    stato: "Visto",
+    titolo: "Death Note",
+    stato: "Da vedere",
     voto: 10,
-    categoria: "Seinen",
-  },
-  {
-    titolo: "My Hero Academia",
-    stato: "Visto",
-    voto: 8,
     categoria: "Shonen",
   },
   {
-    titolo: "Demon Slayer",
+    titolo: "Attack on Titan",
     stato: "Visto",
     voto: 9,
     categoria: "Shonen",
@@ -49,18 +31,18 @@ let ordinamentoCorrente = "titolo-asc";
 let ricercaCorrente = "";
 //Funzione render() che ridipinge la lista. La chiamo subito per mostrare eventuali dati salvati in localStorage.
 function render() {
-  let copiaAnime = [...anime];
+  let filtrati = [...anime];
 
   // Filtro
   if (filtroCorrente !== "Tutti") {
-    copiaAnime = copiaAnime.filter(
+    filtrati = filtrati.filter(
       (animeTutti) => animeTutti.stato === filtroCorrente,
     );
   }
 
   // Ricerca
   if (ricercaCorrente !== "") {
-    copiaAnime = copiaAnime.filter(
+    filtrati = filtrati.filter(
       (animeTutti) =>
         animeTutti.titolo.toLowerCase().includes(ricercaCorrente.toLowerCase()), // Per fare la ricerca case-insensitive, converto sia il titolo che la stringa di ricerca in minuscolo prima di confrontarli.
     );
@@ -68,17 +50,17 @@ function render() {
 
   // Ordinamento
   if (ordinamentoCorrente === "titolo-asc") {
-    copiaAnime.sort((anime1, anime2) =>
+    filtrati.sort((anime1, anime2) =>
       anime1.titolo.localeCompare(anime2.titolo),
     );
   } else if (ordinamentoCorrente === "titolo-desc") {
-    copiaAnime.sort((anime1, anime2) =>
+    filtrati.sort((anime1, anime2) =>
       anime2.titolo.localeCompare(anime1.titolo),
     );
   } else if (ordinamentoCorrente === "voto-asc") {
-    copiaAnime.sort((anime1, anime2) => anime1.voto - anime2.voto);
+    filtrati.sort((anime1, anime2) => anime1.voto - anime2.voto);
   } else if (ordinamentoCorrente === "voto-desc") {
-    copiaAnime.sort((anime1, anime2) => anime2.voto - anime1.voto);
+    filtrati.sort((anime1, anime2) => anime2.voto - anime1.voto);
   }
 
   // Statistiche
@@ -98,16 +80,44 @@ function render() {
   lista.textContent = "";
 
   // Ricrea gli elementi DOM
-  copiaAnime.forEach((a) => {
+  filtrati.forEach(function (a) {
     const li = document.createElement("li");
 
-    const titolo = document.createElement("span");
+    const divInfo = document.createElement("div");
+    divInfo.className = "card-info";
+
+    const titolo = document.createElement("h3");
     titolo.textContent = a.titolo;
 
-    const info = document.createElement("span");
-    info.textContent = `${a.categoria} — Voto: ${a.voto} — ${a.stato}`;
+    const info = document.createElement("p");
+    info.textContent = `${a.categoria} — Voto: ${a.voto}`;
+
+    divInfo.appendChild(titolo);
+    divInfo.appendChild(info);
+
+    const divAzioni = document.createElement("div");
+    divAzioni.className = "card-azioni";
+
+    const badge = document.createElement("span");
+    badge.textContent = a.stato;
+    badge.className = "badge badge-" + a.stato.replace(" ", "-").toLowerCase();
+
+    const btnSegna = document.createElement("button");
+    btnSegna.className = "btn-segna";
+    btnSegna.textContent =
+      a.stato === "Visto" ? "Segna da vedere" : "Segna visto";
+    btnSegna.addEventListener("click", () => {
+      const indice = anime.indexOf(a);
+      anime[indice].stato = a.stato === "Visto" ? "Da vedere" : "Visto";
+      render();
+    });
+
+    const btnModifica = document.createElement("button");
+    btnModifica.className = "btn-card";
+    btnModifica.textContent = "Modifica";
 
     const btnElimina = document.createElement("button");
+    btnElimina.className = "btn-card";
     btnElimina.textContent = "Elimina";
     btnElimina.addEventListener("click", () => {
       const indice = anime.indexOf(a);
@@ -115,9 +125,13 @@ function render() {
       render();
     });
 
-    li.appendChild(titolo);
-    li.appendChild(info);
-    li.appendChild(btnElimina);
+    divAzioni.appendChild(badge);
+    divAzioni.appendChild(btnSegna);
+    divAzioni.appendChild(btnModifica);
+    divAzioni.appendChild(btnElimina);
+
+    li.appendChild(divAzioni);
+    li.appendChild(divInfo);
     lista.appendChild(li);
   });
 }
@@ -151,6 +165,7 @@ formAnime.addEventListener("submit", (e) => {
 
   formAnime.reset();
   render();
+  notifica("Anime aggiunto!");
 });
 
 // Event listener filtri
@@ -182,4 +197,15 @@ if (toggleThemeButton) {
       toggleThemeButton.textContent = "Tema scuro";
     }
   });
+}
+
+// Notifica temporanea
+
+function notifica(testo) {
+  const divNotifica = document.querySelector("#notifica");
+  divNotifica.textContent = testo;
+  divNotifica.classList.add("visibile");
+  setTimeout(function () {
+    divNotifica.classList.remove("visibile");
+  }, 3000);
 }
