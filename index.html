@@ -59,7 +59,23 @@
         </section>
       </div>
       <!-- Ricerca live, filtro (select), ordinamento -->
-      <section class="controlli"></section>
+      <div class="controlli-container">
+        <section class="controlli">
+          <input type="text" id="input-ricerca" placeholder="Cerca per titolo" />
+          <select id="filtro-stato">
+            <option value="Tutti">Tutti</option>
+            <option value="Da vedere">Da vedere</option>
+            <option value="In visione">In visione</option>
+            <option value="Visto">Visto</option>
+          </select>
+          <select id="ordinamento">
+            <option value="titolo-asc">Titolo A→Z</option>
+            <option value="titolo-desc">Titolo Z→A</option>
+            <option value="voto-desc">Voto decrescente</option>
+            <option value="voto-asc">Voto crescente</option>
+          </select>
+        </section>
+      </div>
 
       <section class="statistiche">
         <!-- Conteggi e/o barre orizzontali -->
