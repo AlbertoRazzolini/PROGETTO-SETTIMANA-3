@@ -134,6 +134,9 @@ function render() {
     li.appendChild(divInfo);
     lista.appendChild(li);
   });
+
+  // Salva in localStorage
+  localStorage.setItem("anime", JSON.stringify(anime));
 }
 
 // Submit form
@@ -183,6 +186,10 @@ document.getElementById("ordinamento").addEventListener("change", (e) => {
   ordinamentoCorrente = e.target.value;
   render();
 });
+
+// Carica da localStorage
+const salvato = localStorage.getItem("anime");
+if (salvato) anime = JSON.parse(salvato);
 
 render();
 // Creo const per bottone toggle-theme e aggiungo event listener per il click. Al click toggle della classe "scuro" su body e cambio testo del bottone.
