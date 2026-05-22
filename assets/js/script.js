@@ -71,8 +71,8 @@ REGOLE
 /* SCRIVI QUI LA TUA RISPOSTA */
 
 /* TEMA CHIARO/SCURO
-   Un button che chiama document.body.classList.toggle("dark").
-   In CSS scrivi le regole opposte (es. body.dark { background: #111; ... }).
+   Un button che chiama document.body.classList.toggle("scuro").
+   In CSS scrivi le regole opposte (es. body.scuro { background: #111; ... }).
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
@@ -124,3 +124,24 @@ REGOLE
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+/* INIZIALIZZAZIONE */
+let anime = [
+  { id: 1, titolo: "Naruto", stato: "Visto", voto: 8, categoria: "Shonen" },
+  { id: 1, titolo: "Naruto", stato: "Visto", voto: 8, categoria: "Shonen" },
+  { id: 1, titolo: "Naruto", stato: "Visto", voto: 8, categoria: "Shonen" },
+  { id: 1, titolo: "Naruto", stato: "Visto", voto: 8, categoria: "Shonen" },
+];
+
+const toggleThemeButton = document.getElementById("toggle-theme");
+
+if (toggleThemeButton) {
+  toggleThemeButton.addEventListener("click", () => {
+    const scuroMode = document.body.classList.toggle("scuro");
+    if (scuroMode) {
+      toggleThemeButton.textContent = "Tema chiaro";
+    } else {
+      toggleThemeButton.textContent = "Tema scuro";
+    }
+  });
+}
