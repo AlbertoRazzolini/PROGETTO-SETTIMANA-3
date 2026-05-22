@@ -127,12 +127,12 @@ REGOLE
 
 /* INIZIALIZZAZIONE */
 let anime = [
-  { id: 1, titolo: "Naruto", stato: "Visto", voto: 8, categoria: "Shonen" },
-  { id: 1, titolo: "Naruto", stato: "Visto", voto: 8, categoria: "Shonen" },
-  { id: 1, titolo: "Naruto", stato: "Visto", voto: 8, categoria: "Shonen" },
-  { id: 1, titolo: "Naruto", stato: "Visto", voto: 8, categoria: "Shonen" },
+  { titolo: "Naruto", stato: "Visto", voto: 8, categoria: "Shonen" },
+  { titolo: "Naruto", stato: "Visto", voto: 8, categoria: "Shonen" },
+  { titolo: "Naruto", stato: "Visto", voto: 8, categoria: "Shonen" },
+  { titolo: "Naruto", stato: "Visto", voto: 8, categoria: "Shonen" },
 ];
-
+// Creo const per bottone toggle-theme e aggiungo event listener per il click. Al click toggle della classe "scuro" su body e cambio testo del bottone.
 const toggleThemeButton = document.getElementById("toggle-theme");
 
 if (toggleThemeButton) {

@@ -38,7 +38,7 @@ button {
 
 /* Scrivi qui sotto i tuoi stili */
 
-/* header */
+/* HEADER */
 header {
   width: 100%;
   border-radius: 5px;
@@ -55,7 +55,7 @@ header {
   border-radius: 5px;
 }
 
-.header h1 {
+.header-content h1 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
 }
@@ -84,5 +84,71 @@ header {
 .scuro #toggle-theme {
   background-color: #444;
   color: #fff;
+  border-color: #bbb;
+}
+
+/*FORM*/
+
+.form-container {
+  margin: 2rem 10%;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  width: 80%;
+}
+
+.form-row {
+  font-size: 0;
+}
+
+.form-row input,
+.form-row select {
+  display: inline-block;
+  width: calc((90%) / 4);
+  margin-right: 3%;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  background: #fff;
+  color: #111;
+  vertical-align: middle;
+}
+
+.form-row select:last-child {
+  margin-right: 0;
+}
+
+#btn-aggiungi {
+  background-color: #9c1c1c;
+  color: #d1b3b3;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  margin-top: 1rem;
+}
+
+/* DARK MODE — form */
+.scuro .form-container {
+  background-color: #1e1e1e;
+  border-color: #333;
+}
+
+.scuro .form-container h2 {
+  color: #f5f5f5;
+}
+
+.scuro .form-row input,
+.scuro .form-row select {
+  background: #2a2a2a;
+  border-color: #444;
+  color: #f5f5f5;
+}
+
+.scuro #btn-aggiungi {
+  background-color: #444;
+  color: #f5f5f5;
   border-color: #bbb;
 }
