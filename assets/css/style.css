@@ -105,6 +105,13 @@ header {
   border-color: #bbb;
 }
 
+#toggle-theme:hover {
+  background-color: #7a1515;
+}
+.scuro #toggle-theme:hover {
+  background-color: #333;
+}
+
 /*FORM*/
 
 .form-container {
@@ -144,6 +151,14 @@ header {
   margin-right: 0;
 }
 
+.form-row input:focus,
+.form-row select:focus,
+.filtri input:focus,
+.filtri select:focus {
+  outline: 2px solid #f0ff21;
+  border-color: #cac71d;
+}
+
 #btn-aggiungi {
   background-color: #9c1c1c;
   color: #d1b3b3;
@@ -175,6 +190,13 @@ header {
   background-color: #444;
   color: #f5f5f5;
   border-color: #bbb;
+}
+
+#btn-aggiungi:hover {
+  background-color: #7a1515;
+}
+.scuro #btn-aggiungi:hover {
+  background-color: #333;
 }
 
 /* STATISTICHE */
@@ -342,6 +364,16 @@ header {
   margin-bottom: 0;
 }
 
+.lista li.card-visto {
+  border-left: 4px solid #155724;
+}
+.lista li.card-da-vedere {
+  border-left: 4px solid #856404;
+}
+.lista li.card-in-visione {
+  border-left: 4px solid #004085;
+}
+
 .card-info {
   display: inline-block;
 }
@@ -372,6 +404,13 @@ header {
   color: #004085;
 }
 
+.lista-vuota {
+  text-align: center;
+  color: #888;
+  padding: 2rem 0;
+  font-size: 1rem;
+}
+
 /* SCURO MODE — lista */
 .scuro .lista {
   background-color: #1e1e1e;
@@ -383,6 +422,10 @@ header {
   background: #2a2a2a;
   border-color: #444;
   color: #f5f5f5;
+}
+
+.btn-segna:hover {
+  background-color: #1558a0;
 }
 
 .btn-segna {
@@ -403,6 +446,13 @@ header {
   border: 1px solid #ccc;
   margin-right: 0.4rem;
   font-size: 0.8rem;
+}
+
+.btn-card:hover {
+  background-color: #e8e8e8;
+}
+.scuro .btn-card:hover {
+  background-color: #3a3a3a;
 }
 
 .scuro .btn-card {

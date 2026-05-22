@@ -82,6 +82,12 @@ function render() {
   // Ricrea gli elementi DOM
   filtrati.forEach(function (a) {
     const li = document.createElement("li");
+    const classeStato = {
+      Visto: "card-visto",
+      "In visione": "card-in-visione",
+      "Da vedere": "card-da-vedere",
+    };
+    li.className = classeStato[a.stato];
 
     const divInfo = document.createElement("div");
     divInfo.className = "card-info";
@@ -134,6 +140,13 @@ function render() {
     li.appendChild(divInfo);
     lista.appendChild(li);
   });
+
+  if (filtrati.length === 0) {
+    const vuoto = document.createElement("p");
+    vuoto.className = "lista-vuota";
+    vuoto.textContent = "Nessun anime trovato";
+    lista.appendChild(vuoto);
+  }
 
   // Salva in localStorage
   localStorage.setItem("anime", JSON.stringify(anime));
