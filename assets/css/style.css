@@ -58,10 +58,13 @@ button {
 header {
   width: 100%;
   border-radius: 5px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .header-content {
-  background-color: #d61a1ae8;
+  background-color: #d61a1a;
   color: #fff;
   width: 100%;
   display: inline-block;
@@ -422,6 +425,16 @@ header {
   background: #2a2a2a;
   border-color: #444;
   color: #f5f5f5;
+}
+
+.scuro .lista li.card-visto {
+  border-left-color: #155724;
+}
+.scuro .lista li.card-da-vedere {
+  border-left-color: #856404;
+}
+.scuro .lista li.card-in-visione {
+  border-left-color: #004085;
 }
 
 .btn-segna:hover {
